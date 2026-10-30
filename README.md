@@ -1,76 +1,51 @@
-# Spectral Entropy for MS/MS
+# Spectral Similarity Comparison
 
-**Exploring Spectral Entropy for MS/MS Spectral Matching**
+## Goal
 
-CSCI 558 — Bioinformatics Algorithms · University of Montana · Fall 2026.
+The goal of this project is to determine which of the most common algorithms for comparing spectral similarity is the most robust and reliable for predicting chemical similarity between two molecules based on their tandem mass spectrometry outputs. The algorithms we will compare are spectral entropy, modified cosine, and spec2vec. By the end of the project we should have an understanding of how these algorithms work, which one is the most accurate for Dr. Thomas’s work, and which one is most computationally efficient.
 
-## Current goal
+## Setup
 
-Run spectral entropy similarity on a small set of MS/MS spectra first. Understand the required inputs, preprocessing, parameters, and scores before building a comparison with other similarity methods.
-
-## Status
-
-Repository scaffold only. No implementation, dataset, dependency environment, or experiment results are included yet. The immediate plan is an initial spectral entropy run; a broader course-project scope can be confirmed separately.
-
-## Phase 1 — Run spectral entropy
-
-- Set up a Python environment for the published `ms_entropy` implementation.
-- Load a few MS/MS spectra and inspect their peak lists and metadata.
-- Run spectral entropy similarity on selected pairs of spectra.
-- Inspect the scores and document the preprocessing and parameters used.
-- Save a small, reproducible example with input provenance, package versions, and the exact run command.
-
-## Phase 2 — Compare methods later
-
-After the initial run works, define a comparison with cosine or another method. Choose the dataset, shared preprocessing, retrieval metrics, runtime measurement, and robustness experiments at that stage.
-
-The initial milestone is a working spectral entropy example; a full multi-method benchmark is a later step.
-
-## Layout
-
-```text
-spectral-entropy-msms/
-├── README.md
-├── .gitignore
-├── src/               # Implementation
-├── tests/             # Algorithm validation
-├── configs/           # Preprocessing and experiment settings
-├── notebooks/         # Data exploration and demos
-├── data/
-│   ├── README.md      # Data provenance conventions
-│   ├── raw/           # Local data; ignored by Git
-│   └── processed/     # Local derived data; ignored by Git
-└── results/
-    ├── README.md      # Output conventions
-    ├── runs/          # Generated run outputs; ignored by Git
-    ├── metrics/       # Selected small tables to keep in Git
-    └── figures/       # Selected figures to keep in Git
-```
-
-The empty code/config/notebook/test folders contain `.gitkeep` placeholders. Dependencies and run commands will be added when implementation begins.
-
-## References
-
-- [Spectral entropy similarity — Li et al. (2021)](https://www.nature.com/articles/s41592-021-01331-z)
-- [matchms CosineGreedy](https://matchms.readthedocs.io/en/latest/api/matchms.similarity.CosineGreedy.html)
-- [MS Entropy documentation](https://msentropy.readthedocs.io/en/latest/classical_entropy_similarity.html)
-- [MassBank data repository](https://github.com/MassBank/MassBank-data)
-
-## GitHub setup
-
-Repository: [blake081116/spectral-entropy-msms](https://github.com/blake081116/spectral-entropy-msms).
-
-Remote URL: `https://github.com/blake081116/spectral-entropy-msms.git`.
-
-Use this folder as the local repository root. After the initial setup, make further commits from here:
+Requires Conda. Run these commands from the repository root:
 
 ```bash
-git status
-git add .
-git commit -m "Describe the change"
-git push
+conda create --prefix ./.venv -c conda-forge -c bioconda python=3.12 pip matchms spec2vec -y
+conda activate ./.venv
+python -m pip install ms_entropy
+mkdir -p data/raw data/processed results/runs
 ```
 
-To work on another computer, clone the repository into a new or empty directory. The raw-data and generated-output folders are ignored by Git; recreate or populate them when the experiments begin.
+This environment includes [MS Entropy](https://pypi.org/project/ms-entropy/), [matchms](https://pypi.org/project/matchms/) for modified cosine, and [Spec2Vec](https://pypi.org/project/spec2vec/).
 
-This folder is the repository root. Meeting notes, personal documents, and archived course files are stored in sibling workspace folders. This README is self-contained so it also works after cloning the repository elsewhere.
+## Run
+
+Activate the environment in each new terminal:
+
+```bash
+conda activate ./.venv
+```
+
+Check the installed libraries:
+
+```bash
+python -c "import ms_entropy, matchms, spec2vec; print('Environment ready')"
+```
+
+Run a standalone spectral entropy similarity example with illustrative peak lists:
+
+```bash
+python - <<'PYTHON'
+import numpy as np
+from ms_entropy import calculate_entropy_similarity
+
+query = np.array([[100.0, 10.0], [150.0, 50.0], [200.0, 100.0]], dtype=np.float32)
+reference = np.array([[100.01, 20.0], [150.01, 40.0], [250.0, 80.0]], dtype=np.float32)
+
+score = calculate_entropy_similarity(
+    query, reference, ms2_tolerance_in_da=0.02, clean_spectra=True
+)
+print(f"Entropy similarity: {score:.6f}")
+PYTHON
+```
+
+The example uses the [MS Entropy API](https://msentropy.readthedocs.io/en/latest/classical_entropy_similarity.html). It runs independently of a dataset or project pipeline. Spec2Vec scoring requires a trained Word2Vec model; this repository does not include one.

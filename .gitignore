@@ -24,15 +24,13 @@ dist/
 .vscode/
 .idea/
 
-# Data are local; keep only provenance documentation in Git
+# Data are local; keep only provenance and split metadata in Git
 /data/*
-!/data/README.md
 !/data/manifest.csv
 !/data/splits.csv
 
 # Keep curated metrics/figures; exclude other generated outputs
 /results/*
-!/results/README.md
 !/results/metrics/
 !/results/figures/
 
