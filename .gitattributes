@@ -1,0 +1,5 @@
+# Store CSV tables with consistent line endings in Git.
+*.csv text eol=lf
+
+# Matplotlib emits insignificant trailing spaces inside generated SVG paths.
+results/figures/**/*.svg -whitespace

@@ -1,0 +1,61 @@
+{
+  "source": "YuanyueLi/SpectralEntropy/example.py",
+  "kind": "illustrative_synthetic_peak_lists",
+  "raw_query_peaks": [
+    [
+      69.07099914550781,
+      7.917962074279785
+    ],
+    [
+      86.06600189208984,
+      1.0215890407562256
+    ],
+    [
+      86.0969009399414,
+      100.0
+    ]
+  ],
+  "raw_reference_peaks": [
+    [
+      41.040000915527344,
+      37.15999984741211
+    ],
+    [
+      69.06999969482422,
+      66.83000183105469
+    ],
+    [
+      86.0999984741211,
+      999.0
+    ]
+  ],
+  "clean_query_peaks": [
+    [
+      69.07099914550781,
+      0.07268216460943222
+    ],
+    [
+      86.09658813476562,
+      0.9273178577423096
+    ]
+  ],
+  "clean_reference_peaks": [
+    [
+      41.040000915527344,
+      0.03369024395942688
+    ],
+    [
+      69.06999969482422,
+      0.060589853674173355
+    ],
+    [
+      86.0999984741211,
+      0.9057199358940125
+    ]
+  ],
+  "ms2_tolerance_da": 0.05,
+  "noise_removal_fraction": 0.01,
+  "entropy_weighted": 0.8984398591079145,
+  "entropy_unweighted": 0.9826668790176113,
+  "note": "The illustrative example has no precursor exclusion because no precursor metadata are supplied."
+}

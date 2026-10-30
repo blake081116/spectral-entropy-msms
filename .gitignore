@@ -35,3 +35,6 @@ dist/
 !/results/figures/
 
 *.log
+
+# Upstream source is a separate local Git clone
+/external/SpectralEntropy/

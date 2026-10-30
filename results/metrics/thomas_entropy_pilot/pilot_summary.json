@@ -1,0 +1,533 @@
+{
+  "run_timestamp_utc": "2026-10-30T08:19:28.292718+00:00",
+  "config": {
+    "input_files": [
+      "data/raw/01-dr-thomas-provided/GNPS-COLLECTIONS-PESTICIDES-POSITIVE.mgf",
+      "data/raw/01-dr-thomas-provided/GNPS-NIH-CLINICALCOLLECTION1.mgf"
+    ],
+    "expected_sha256": {
+      "GNPS-COLLECTIONS-PESTICIDES-POSITIVE.mgf": "33b80cec3b7dc326a2a55612ff424cd30bfad5e21ec100e160bac174cdc4d2be",
+      "GNPS-NIH-CLINICALCOLLECTION1.mgf": "f5cee0c400bd947e072dd094ccc92d80935d88e3f60e95b122bb10ab7514085b"
+    },
+    "upstream_commit": "4795aff2de88942e2865ad32ce0538ebfded3b7f",
+    "seed": 42,
+    "ms2_tolerance_da": 0.05,
+    "noise_removal_fraction": 0.01,
+    "precursor_exclusion_da": 1.6,
+    "minimum_clean_peaks": 2,
+    "precursor_tolerance_ppm": 10.0,
+    "maximum_query_spectra": 100,
+    "maximum_same_compound_pairs": 1000,
+    "maximum_different_compound_pairs": 1000,
+    "score_tie_tolerance": 1e-06,
+    "score_roundoff_tolerance": 1e-05,
+    "metrics_directory": "results/metrics/thomas_entropy_pilot",
+    "figures_directory": "results/figures/thomas_entropy_pilot",
+    "run_directory": "results/runs/thomas_entropy_pilot"
+  },
+  "config_sha256": "68a134a2d98ee13d03fa9b5665c54a24588a51a2573e7695dd2d3a64d049dba9",
+  "upstream_commit": "4795aff2de88942e2865ad32ce0538ebfded3b7f",
+  "command": "python src/run_entropy_pilot.py --config configs/thomas_entropy_pilot.json",
+  "environment": {
+    "python": "3.12.16 (main, Oct 26 2026, 11:31:43) [Clang 21.1.8 ]",
+    "platform": "macOS-27.0.1-arm64-arm-64bit",
+    "machine": "arm64",
+    "logical_cpus": 12,
+    "packages": {
+      "SpectralEntropy": "1.0",
+      "numpy": "1.26.4",
+      "scipy": "1.13.1",
+      "Cython": "3.0.12",
+      "rdkit": "2024.9.6",
+      "matplotlib": "3.9.4",
+      "pytest": "9.2.0"
+    },
+    "spectral_entropy_module": ".venv/lib/python3.12/site-packages/spectral_entropy/__init__.py",
+    "cython_extension": ".venv/lib/python3.12/site-packages/spectral_entropy/tools_fast.cpython-312-darwin.so"
+  },
+  "input_files": [
+    {
+      "source_file": "GNPS-COLLECTIONS-PESTICIDES-POSITIVE.mgf",
+      "relative_path": "data/raw/01-dr-thomas-provided/GNPS-COLLECTIONS-PESTICIDES-POSITIVE.mgf",
+      "bytes": 3801776,
+      "sha256": "33b80cec3b7dc326a2a55612ff424cd30bfad5e21ec100e160bac174cdc4d2be",
+      "spectra": 653,
+      "received_from": "Dr. Thomas",
+      "upstream_url": "https://external.gnps2.org/gnpslibrary/GNPS-COLLECTIONS-PESTICIDES-POSITIVE.mgf"
+    },
+    {
+      "source_file": "GNPS-NIH-CLINICALCOLLECTION1.mgf",
+      "relative_path": "data/raw/01-dr-thomas-provided/GNPS-NIH-CLINICALCOLLECTION1.mgf",
+      "bytes": 4424658,
+      "sha256": "f5cee0c400bd947e072dd094ccc92d80935d88e3f60e95b122bb10ab7514085b",
+      "spectra": 377,
+      "received_from": "Dr. Thomas",
+      "upstream_url": "https://external.gnps2.org/gnpslibrary/GNPS-NIH-CLINICALCOLLECTION1.mgf"
+    }
+  ],
+  "total_input_spectra": 1030,
+  "usable_spectra": 1028,
+  "label_usable_spectra": 1025,
+  "exclusion_reasons": {
+    "fewer_than_minimum_clean_peaks": 2
+  },
+  "structure_status": {
+    "valid": 1027,
+    "conflicting_annotations": 3
+  },
+  "unique_label_usable_compounds": 488,
+  "duplicate_clean_peak_vectors": 0,
+  "eligible_query_spectra": 614,
+  "eligible_query_compounds": 171,
+  "evaluated_query_spectra": 100,
+  "query_source_counts": {
+    "GNPS-COLLECTIONS-PESTICIDES-POSITIVE.mgf": 95,
+    "GNPS-NIH-CLINICALCOLLECTION1.mgf": 5
+  },
+  "query_protocol": "One seeded query per sampled connectivity key; leave-one-spectrum-out; identical cleaned peak vectors excluded; no held-out test set.",
+  "label_protocol": "First 14 characters of RDKit InChIKey derived from supplied SMILES; conflicting supplied InChI labels excluded from labeled analysis.",
+  "tie_policy": "Pessimistic compound rank with score tolerance 1e-06; each compound scored by its best reference spectrum.",
+  "numerical_diagnostics": {
+    "evaluated_scores": 133674,
+    "clipped_counts": {
+      "entropy_weighted": 18917
+    },
+    "raw_minimum": -1.3786090422573949e-06,
+    "raw_maximum": 1.0,
+    "examples": [
+      {
+        "method": "entropy_weighted",
+        "raw_score": -1.206626391470067e-06,
+        "bounded_score": 0.0,
+        "context": "CCMSLIB00001058493 versus CCMSLIB00001058937"
+      },
+      {
+        "method": "entropy_weighted",
+        "raw_score": -2.747835292638001e-09,
+        "bounded_score": 0.0,
+        "context": "CCMSLIB00001058708 versus CCMSLIB00001058731"
+      },
+      {
+        "method": "entropy_weighted",
+        "raw_score": -2.747835292638001e-09,
+        "bounded_score": 0.0,
+        "context": "CCMSLIB00001058209 versus CCMSLIB00001058965"
+      },
+      {
+        "method": "entropy_weighted",
+        "raw_score": -8.873916068630194e-08,
+        "bounded_score": 0.0,
+        "context": "CCMSLIB00001058213 versus CCMSLIB00001058324"
+      },
+      {
+        "method": "entropy_weighted",
+        "raw_score": -2.6072181169567443e-07,
+        "bounded_score": 0.0,
+        "context": "CCMSLIB00001058213 versus CCMSLIB00001058364"
+      },
+      {
+        "method": "entropy_weighted",
+        "raw_score": -1.747304863020105e-07,
+        "bounded_score": 0.0,
+        "context": "CCMSLIB00001058217 versus CCMSLIB00001058307"
+      },
+      {
+        "method": "entropy_weighted",
+        "raw_score": -8.873916068630194e-08,
+        "bounded_score": 0.0,
+        "context": "CCMSLIB00001058217 versus CCMSLIB00001058821"
+      },
+      {
+        "method": "entropy_weighted",
+        "raw_score": -2.6072181169567443e-07,
+        "bounded_score": 0.0,
+        "context": "CCMSLIB00001058221 versus CCMSLIB00001058336"
+      },
+      {
+        "method": "entropy_weighted",
+        "raw_score": -1.747304863020105e-07,
+        "bounded_score": 0.0,
+        "context": "CCMSLIB00001058223 versus CCMSLIB00001058977"
+      },
+      {
+        "method": "entropy_weighted",
+        "raw_score": -5.186957878766663e-07,
+        "bounded_score": 0.0,
+        "context": "CCMSLIB00001058225 versus CCMSLIB00000079268"
+      },
+      {
+        "method": "entropy_weighted",
+        "raw_score": -8.873916068630194e-08,
+        "bounded_score": 0.0,
+        "context": "CCMSLIB00001058231 versus CCMSLIB00001058704"
+      },
+      {
+        "method": "entropy_weighted",
+        "raw_score": -2.747835292638001e-09,
+        "bounded_score": 0.0,
+        "context": "CCMSLIB00001058231 versus CCMSLIB00000079145"
+      },
+      {
+        "method": "entropy_weighted",
+        "raw_score": -1.747304863020105e-07,
+        "bounded_score": 0.0,
+        "context": "CCMSLIB00001058236 versus CCMSLIB00001058802"
+      },
+      {
+        "method": "entropy_weighted",
+        "raw_score": -2.747835292638001e-09,
+        "bounded_score": 0.0,
+        "context": "CCMSLIB00001058243 versus CCMSLIB00001058301"
+      },
+      {
+        "method": "entropy_weighted",
+        "raw_score": -4.5743498100492275e-08,
+        "bounded_score": 0.0,
+        "context": "CCMSLIB00001058243 versus CCMSLIB00001058996"
+      },
+      {
+        "method": "entropy_weighted",
+        "raw_score": -1.747304863020105e-07,
+        "bounded_score": 0.0,
+        "context": "CCMSLIB00001058252 versus CCMSLIB00001058674"
+      },
+      {
+        "method": "entropy_weighted",
+        "raw_score": -3.037174742814841e-07,
+        "bounded_score": 0.0,
+        "context": "CCMSLIB00001058252 versus CCMSLIB00000078931"
+      },
+      {
+        "method": "entropy_weighted",
+        "raw_score": -4.757001252908566e-07,
+        "bounded_score": 0.0,
+        "context": "CCMSLIB00001058252 versus CCMSLIB00000078945"
+      },
+      {
+        "method": "entropy_weighted",
+        "raw_score": -2.747835292638001e-09,
+        "bounded_score": 0.0,
+        "context": "CCMSLIB00001058275 versus CCMSLIB00001058671"
+      },
+      {
+        "method": "entropy_weighted",
+        "raw_score": -8.873916068630194e-08,
+        "bounded_score": 0.0,
+        "context": "CCMSLIB00001058275 versus CCMSLIB00000079267"
+      }
+    ]
+  },
+  "self_similarity_max_abs_error": {
+    "entropy_weighted": 0.0,
+    "entropy_unweighted": 0.0
+  },
+  "synthetic_example": {
+    "source": "YuanyueLi/SpectralEntropy/example.py",
+    "kind": "illustrative_synthetic_peak_lists",
+    "raw_query_peaks": [
+      [
+        69.07099914550781,
+        7.917962074279785
+      ],
+      [
+        86.06600189208984,
+        1.0215890407562256
+      ],
+      [
+        86.0969009399414,
+        100.0
+      ]
+    ],
+    "raw_reference_peaks": [
+      [
+        41.040000915527344,
+        37.15999984741211
+      ],
+      [
+        69.06999969482422,
+        66.83000183105469
+      ],
+      [
+        86.0999984741211,
+        999.0
+      ]
+    ],
+    "clean_query_peaks": [
+      [
+        69.07099914550781,
+        0.07268216460943222
+      ],
+      [
+        86.09658813476562,
+        0.9273178577423096
+      ]
+    ],
+    "clean_reference_peaks": [
+      [
+        41.040000915527344,
+        0.03369024395942688
+      ],
+      [
+        69.06999969482422,
+        0.060589853674173355
+      ],
+      [
+        86.0999984741211,
+        0.9057199358940125
+      ]
+    ],
+    "ms2_tolerance_da": 0.05,
+    "noise_removal_fraction": 0.01,
+    "entropy_weighted": 0.8984398591079145,
+    "entropy_unweighted": 0.9826668790176113,
+    "note": "The illustrative example has no precursor exclusion because no precursor metadata are supplied."
+  },
+  "per_file": [
+    {
+      "source_file": "GNPS-COLLECTIONS-PESTICIDES-POSITIVE.mgf",
+      "spectra": 653,
+      "usable_spectra": 651,
+      "label_usable_spectra": 648,
+      "original_inchikey_missing": 653,
+      "derived_inchikey_available": 653,
+      "conflicting_structure_annotations": 3,
+      "missing_collision_energy": 653,
+      "ion_modes": {
+        "positive": 653
+      },
+      "adducts_inferred_from_name": {
+        "[M+H]": 450,
+        "[M-H2O+H]": 18,
+        "[M+NH4]": 30,
+        "[M+Na]": 134,
+        "[M+K]": 12,
+        "[M+ACN+H]": 9
+      },
+      "raw_peak_count": {
+        "count": 653,
+        "min": 5.0,
+        "median": 60.0,
+        "mean": 293.104134762634,
+        "max": 8368.0
+      },
+      "clean_peak_count": {
+        "count": 651,
+        "min": 2.0,
+        "median": 15.0,
+        "mean": 24.316436251920123,
+        "max": 339.0
+      },
+      "spectral_entropy_nats": {
+        "count": 651,
+        "min": 0.05571817606687546,
+        "median": 1.7588579654693604,
+        "mean": 1.8453375583374372,
+        "max": 5.597290992736816
+      }
+    },
+    {
+      "source_file": "GNPS-NIH-CLINICALCOLLECTION1.mgf",
+      "spectra": 377,
+      "usable_spectra": 377,
+      "label_usable_spectra": 377,
+      "original_inchikey_missing": 377,
+      "derived_inchikey_available": 377,
+      "conflicting_structure_annotations": 0,
+      "missing_collision_energy": 377,
+      "ion_modes": {
+        "positive": 377
+      },
+      "adducts_inferred_from_name": {
+        "[M+H]": 324,
+        "[M+2H]": 36,
+        "[M+Na]": 17
+      },
+      "raw_peak_count": {
+        "count": 377,
+        "min": 37.0,
+        "median": 495.0,
+        "mean": 664.3474801061008,
+        "max": 3077.0
+      },
+      "clean_peak_count": {
+        "count": 377,
+        "min": 3.0,
+        "median": 43.0,
+        "mean": 77.13527851458886,
+        "max": 578.0
+      },
+      "spectral_entropy_nats": {
+        "count": 377,
+        "min": 0.2866932451725006,
+        "median": 2.7217559814453125,
+        "mean": 2.8207307261086267,
+        "max": 6.029813766479492
+      }
+    }
+  ],
+  "pair_statistics": {
+    "different_connectivity_mass_matched": {
+      "pairs": 40,
+      "entropy_weighted": {
+        "count": 40,
+        "min": 0.0,
+        "median": 1.262391527978579e-07,
+        "mean": 0.10617796142276752,
+        "max": 0.8573446906755718
+      },
+      "entropy_unweighted": {
+        "count": 40,
+        "min": 0.0,
+        "median": 3.089707193426605e-07,
+        "mean": 0.10757130439134666,
+        "max": 0.8573446906755718
+      }
+    },
+    "different_connectivity_random": {
+      "pairs": 1000,
+      "entropy_weighted": {
+        "count": 1000,
+        "min": 0.0,
+        "median": 0.01201229748432836,
+        "mean": 0.04258355359008402,
+        "max": 0.6987737628749976
+      },
+      "entropy_unweighted": {
+        "count": 1000,
+        "min": 0.0,
+        "median": 0.007650688471459388,
+        "mean": 0.0350765492813934,
+        "max": 0.7539131205681227
+      }
+    },
+    "same_connectivity_same_adduct": {
+      "pairs": 556,
+      "entropy_weighted": {
+        "count": 556,
+        "min": 0.0,
+        "median": 0.8534811004239389,
+        "mean": 0.821257365897551,
+        "max": 0.9999972912732489
+      },
+      "entropy_unweighted": {
+        "count": 556,
+        "min": 0.0,
+        "median": 0.8788929774436198,
+        "mean": 0.8397681176085184,
+        "max": 0.9999902077378165
+      }
+    }
+  },
+  "retrieval": [
+    {
+      "candidate_mode": "same_adduct_all_precursors",
+      "method": "entropy_unweighted",
+      "subset": "all_queries",
+      "queries": 100,
+      "top1_accuracy": 0.95,
+      "recall_at_5": 0.98,
+      "mrr": 0.9664285714285714,
+      "median_candidate_spectra": 770.0,
+      "median_candidate_compounds": 473.0,
+      "total_score_seconds": 12.85902458394412,
+      "mean_score_ms_per_query": 128.5902458394412
+    },
+    {
+      "candidate_mode": "same_adduct_all_precursors",
+      "method": "entropy_unweighted",
+      "subset": "multiple_candidate_compounds",
+      "queries": 100,
+      "top1_accuracy": 0.95,
+      "recall_at_5": 0.98,
+      "mrr": 0.9664285714285714,
+      "median_candidate_spectra": 770.0,
+      "median_candidate_compounds": 473.0,
+      "total_score_seconds": 12.85902458394412,
+      "mean_score_ms_per_query": 128.5902458394412
+    },
+    {
+      "candidate_mode": "same_adduct_all_precursors",
+      "method": "entropy_weighted",
+      "subset": "all_queries",
+      "queries": 100,
+      "top1_accuracy": 0.95,
+      "recall_at_5": 0.99,
+      "mrr": 0.9647619047619048,
+      "median_candidate_spectra": 770.0,
+      "median_candidate_compounds": 473.0,
+      "total_score_seconds": 21.605469566537067,
+      "mean_score_ms_per_query": 216.05469566537067
+    },
+    {
+      "candidate_mode": "same_adduct_all_precursors",
+      "method": "entropy_weighted",
+      "subset": "multiple_candidate_compounds",
+      "queries": 100,
+      "top1_accuracy": 0.95,
+      "recall_at_5": 0.99,
+      "mrr": 0.9647619047619048,
+      "median_candidate_spectra": 770.0,
+      "median_candidate_compounds": 473.0,
+      "total_score_seconds": 21.605469566537067,
+      "mean_score_ms_per_query": 216.05469566537067
+    },
+    {
+      "candidate_mode": "same_adduct_precursor_10ppm",
+      "method": "entropy_unweighted",
+      "subset": "all_queries",
+      "queries": 100,
+      "top1_accuracy": 1.0,
+      "recall_at_5": 1.0,
+      "mrr": 1.0,
+      "median_candidate_spectra": 2.0,
+      "median_candidate_compounds": 1.0,
+      "total_score_seconds": 0.03694482729770243,
+      "mean_score_ms_per_query": 0.3694482729770243
+    },
+    {
+      "candidate_mode": "same_adduct_precursor_10ppm",
+      "method": "entropy_unweighted",
+      "subset": "multiple_candidate_compounds",
+      "queries": 4,
+      "top1_accuracy": 1.0,
+      "recall_at_5": 1.0,
+      "mrr": 1.0,
+      "median_candidate_spectra": 4.0,
+      "median_candidate_compounds": 2.0,
+      "total_score_seconds": 0.0030364569975063205,
+      "mean_score_ms_per_query": 0.7591142493765801
+    },
+    {
+      "candidate_mode": "same_adduct_precursor_10ppm",
+      "method": "entropy_weighted",
+      "subset": "all_queries",
+      "queries": 100,
+      "top1_accuracy": 1.0,
+      "recall_at_5": 1.0,
+      "mrr": 1.0,
+      "median_candidate_spectra": 2.0,
+      "median_candidate_compounds": 1.0,
+      "total_score_seconds": 0.0638729544589296,
+      "mean_score_ms_per_query": 0.638729544589296
+    },
+    {
+      "candidate_mode": "same_adduct_precursor_10ppm",
+      "method": "entropy_weighted",
+      "subset": "multiple_candidate_compounds",
+      "queries": 4,
+      "top1_accuracy": 1.0,
+      "recall_at_5": 1.0,
+      "mrr": 1.0,
+      "median_candidate_spectra": 4.0,
+      "median_candidate_compounds": 2.0,
+      "total_score_seconds": 0.005229251924902201,
+      "mean_score_ms_per_query": 1.3073129812255502
+    }
+  ],
+  "timing_seconds": {
+    "preparation": 1.493131082970649,
+    "pair_examples": 1.0534803749760613,
+    "pipeline_wall": 38.760567708988674
+  },
+  "scope": "Entropy-only pilot on public GNPS exports supplied by Dr. Thomas; not a three-algorithm comparison or a sediment/lipidomics validation."
+}

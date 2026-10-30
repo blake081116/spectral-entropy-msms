@@ -1,0 +1,9 @@
+candidate_mode,method,subset,queries,top1_accuracy,recall_at_5,mrr,median_candidate_spectra,median_candidate_compounds,total_score_seconds,mean_score_ms_per_query
+same_adduct_all_precursors,entropy_unweighted,all_queries,100,0.95,0.98,0.9664285714285714,770.0,473.0,12.85902458394412,128.5902458394412
+same_adduct_all_precursors,entropy_unweighted,multiple_candidate_compounds,100,0.95,0.98,0.9664285714285714,770.0,473.0,12.85902458394412,128.5902458394412
+same_adduct_all_precursors,entropy_weighted,all_queries,100,0.95,0.99,0.9647619047619048,770.0,473.0,21.605469566537067,216.05469566537067
+same_adduct_all_precursors,entropy_weighted,multiple_candidate_compounds,100,0.95,0.99,0.9647619047619048,770.0,473.0,21.605469566537067,216.05469566537067
+same_adduct_precursor_10ppm,entropy_unweighted,all_queries,100,1.0,1.0,1.0,2.0,1.0,0.03694482729770243,0.3694482729770243
+same_adduct_precursor_10ppm,entropy_unweighted,multiple_candidate_compounds,4,1.0,1.0,1.0,4.0,2.0,0.0030364569975063205,0.7591142493765801
+same_adduct_precursor_10ppm,entropy_weighted,all_queries,100,1.0,1.0,1.0,2.0,1.0,0.0638729544589296,0.638729544589296
+same_adduct_precursor_10ppm,entropy_weighted,multiple_candidate_compounds,4,1.0,1.0,1.0,4.0,2.0,0.005229251924902201,1.3073129812255502

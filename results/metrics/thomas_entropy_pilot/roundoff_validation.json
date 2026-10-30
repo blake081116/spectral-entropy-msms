@@ -1,0 +1,8 @@
+{
+  "query_id": "CCMSLIB00001058493",
+  "reference_id": "CCMSLIB00001058937",
+  "pair_type": "same_connectivity_same_adduct",
+  "original_float32_weighted_score": -1.206626391470067e-06,
+  "float64_recomputation_score": 1.1102230246251565e-15,
+  "description": "Recomputed the published entropy formula in float64 on the original matched peak vectors; no source code modified."
+}

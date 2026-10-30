@@ -1,0 +1,55 @@
+{
+  "compound": "Spinosad (Spinosyn A)",
+  "adduct": "[M+H]+",
+  "query_id": "CCMSLIB00001058649",
+  "reference_id": "CCMSLIB00001058908",
+  "source_file": "data/raw/01-dr-thomas-provided/GNPS-COLLECTIONS-PESTICIDES-POSITIVE.mgf",
+  "source_sha256": "33b80cec3b7dc326a2a55612ff424cd30bfad5e21ec100e160bac174cdc4d2be",
+  "precursor_mz": 732.468,
+  "ms2_tolerance_da": 0.05,
+  "precursor_cutoff_mz": 730.8679999999999,
+  "raw_peak_records": {
+    "query": 3875,
+    "reference": 63
+  },
+  "clean_peak_records": {
+    "query": 20,
+    "reference": 12
+  },
+  "aligned_rows": 21,
+  "matched_rows": 11,
+  "query_only_rows": 9,
+  "reference_only_rows": 1,
+  "entropy_nats": {
+    "query": 1.7018431872278315,
+    "reference": 1.2245413657802064,
+    "mixture": 1.5204365942946316
+  },
+  "intensity_exponents": {
+    "query": 0.6754607968069579,
+    "reference": 0.5561353414450516
+  },
+  "manual_similarity": {
+    "weighted": 0.8543845397950502,
+    "unweighted": 0.9174139066044112
+  },
+  "upstream_similarity": {
+    "weighted": 0.8543840093409686,
+    "unweighted": 0.9174141890296555
+  },
+  "highlighted_match": {
+    "row": 10,
+    "query_mz": 142.12319946289062,
+    "reference_mz": 142.1219940185547,
+    "delta_mz": 0.0012054443359375,
+    "query_p": 0.6143038969024254,
+    "reference_p": 0.6788060455138135,
+    "mixture_m": 0.6465549712081194,
+    "minus_p_ln_p": 0.299329112176118,
+    "minus_q_ln_q": 0.26298292919335703,
+    "minus_m_ln_m": 0.28196071912876547,
+    "status": "matched"
+  },
+  "scope": "A real pairwise comparison already included in pair_scores.csv; this script does not perform a library-wide identification search.",
+  "formula_validation": "Both explicit calculations agree with the original implementation within 5e-6."
+}

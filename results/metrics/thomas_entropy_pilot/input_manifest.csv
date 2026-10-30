@@ -1,0 +1,3 @@
+source_file,relative_path,bytes,sha256,spectra,received_from,upstream_url
+GNPS-COLLECTIONS-PESTICIDES-POSITIVE.mgf,data/raw/01-dr-thomas-provided/GNPS-COLLECTIONS-PESTICIDES-POSITIVE.mgf,3801776,33b80cec3b7dc326a2a55612ff424cd30bfad5e21ec100e160bac174cdc4d2be,653,Dr. Thomas,https://external.gnps2.org/gnpslibrary/GNPS-COLLECTIONS-PESTICIDES-POSITIVE.mgf
+GNPS-NIH-CLINICALCOLLECTION1.mgf,data/raw/01-dr-thomas-provided/GNPS-NIH-CLINICALCOLLECTION1.mgf,4424658,f5cee0c400bd947e072dd094ccc92d80935d88e3f60e95b122bb10ab7514085b,377,Dr. Thomas,https://external.gnps2.org/gnpslibrary/GNPS-NIH-CLINICALCOLLECTION1.mgf

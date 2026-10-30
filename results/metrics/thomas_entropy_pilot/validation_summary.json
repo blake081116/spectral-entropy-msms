@@ -1,0 +1,18 @@
+{
+  "status": "passed",
+  "input_spectra": 1030,
+  "unique_query_compounds": 100,
+  "retrieval_rows_recomputed_from_saved_score_matrix": 400,
+  "aggregate_metric_rows_recomputed": 8,
+  "pair_rows": 1596,
+  "self_matches_in_score_matrix": 0,
+  "raw_file_checksums_verified": 2,
+  "checks": [
+    "Candidate sets reconstructed from saved metadata without importing pipeline selection functions",
+    "All compound ranks independently reconstructed from the saved scores",
+    "Top-1, Recall@5, MRR and pair medians independently recomputed from CSV/NPZ outputs",
+    "Only eligible candidate cells are finite in the full score matrix",
+    "Saved output scores are bounded between zero and one",
+    "Both original input SHA-256 checksums remain unchanged"
+  ]
+}

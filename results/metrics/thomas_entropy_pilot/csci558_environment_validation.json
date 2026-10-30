@@ -1,0 +1,53 @@
+{
+  "environment_name": "CSCI558",
+  "validated_at_utc": "2026-10-30T15:37:56.083734+00:00",
+  "creation_method": "Cloned the validated project-local .venv environment using conda create --name CSCI558 --clone ./.venv --offline --yes",
+  "package_records": 113,
+  "package_inventory_identical_to_original_environment": true,
+  "python": "3.12.16 (main, Oct 26 2026, 11:31:43) [Clang 21.1.8 ]",
+  "packages": {
+    "SpectralEntropy": "1.0",
+    "numpy": "1.26.4",
+    "scipy": "1.13.1",
+    "Cython": "3.0.12",
+    "rdkit": "2024.9.6",
+    "matplotlib": "3.9.4",
+    "pytest": "9.2.0"
+  },
+  "compiled_backend": "$CONDA_PREFIX/lib/python3.12/site-packages/spectral_entropy/tools_fast.cpython-312-darwin.so",
+  "pytest": {
+    "tests": 10,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "pip_check": "No broken requirements found",
+  "pipeline_command": "conda run --no-capture-output --name CSCI558 python -u src/run_entropy_pilot.py --config results/runs/thomas_entropy_pilot/csci558-validation/config.json",
+  "pipeline_wall_seconds": 38.42288254189771,
+  "input_spectra": 1030,
+  "usable_spectra": 1028,
+  "query_spectra": 100,
+  "query_result_rows_compared": 400,
+  "all_query_results_match_original_except_timing": true,
+  "audit_pair_and_query_selection_outputs_byte_identical": true,
+  "original_curated_outputs_preserved": true,
+  "scientific_summary_fields_compared": [
+    "total_input_spectra",
+    "usable_spectra",
+    "label_usable_spectra",
+    "unique_label_usable_compounds",
+    "eligible_query_spectra",
+    "eligible_query_compounds",
+    "evaluated_query_spectra",
+    "query_source_counts",
+    "pair_statistics",
+    "numerical_diagnostics"
+  ],
+  "source_sha256": {
+    "environment.yml": "de1cd0cccb2d1e832ca6f1db1a21c7ef2e2e21d88d02a7be11ef0d123d000476",
+    "src/run_entropy_pilot.py": "dd4b59c24caa53bf0810ca8426154c0a444d6614d59b47dd6ffc69ef9f62f21b",
+    "tests/test_entropy_pilot.py": "97f29e81b5a9e1600950b88ac10292c5b4fdfa14007bf266a0e6b8337988e8b2"
+  },
+  "local_validation_directory": "results/runs/thomas_entropy_pilot/csci558-validation",
+  "local_test_report": "results/runs/thomas_entropy_pilot/csci558-tests.xml"
+}
